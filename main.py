@@ -30,8 +30,9 @@ def main():
     filepath = f"./dataset/{opt.type}.aac" 
     while True:
         return_code = subprocess.call(["afplay", filepath]) 
-        if time.time()-start>opt.hour:
+        if time.time()-start>opt.hour*3600:
             break
+        time.sleep(300)
 
 
 if __name__=='__main__':
