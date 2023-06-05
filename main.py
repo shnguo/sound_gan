@@ -2,6 +2,9 @@ import subprocess
 import bleak
 import argparse
 import time
+from log import get_logger
+import os
+logger = get_logger(os.path.basename(__file__))
 earthquake = "./dataset/earthquake.wav"
 babycry1 = "./dataset/babycry1.mp3"
 babycry2 = "./dataset/babycry2.mp3"
@@ -29,6 +32,7 @@ def main():
     opt  =  parse_opt()
     filepath = f"./dataset/{opt.type}.aac" 
     while True:
+        logger.info(f'play {opt.type}')
         return_code = subprocess.call(["afplay", filepath]) 
         if time.time()-start>opt.hour*3600:
             break
