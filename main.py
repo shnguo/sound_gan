@@ -19,6 +19,7 @@ import asyncio
 # from bleak import BleakScanner,BleakClient
 
 
+
 def parse_opt():
     parser = argparse.ArgumentParser()
     parser.add_argument('--type', type=str, default='weixin_piece', help='For connection.')
