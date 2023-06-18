@@ -16,7 +16,7 @@ weixin = "./dataset/weixin.aac"
 dianzuan = "./dataset/dianzuan.aac"
 
 import asyncio
-from bleak import BleakScanner,BleakClient
+# from bleak import BleakScanner,BleakClient
 
 
 def parse_opt():
