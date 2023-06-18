@@ -4,6 +4,7 @@ import argparse
 import time
 from log import get_logger
 import os
+import platform
 logger = get_logger(os.path.basename(__file__))
 earthquake = "./dataset/earthquake.wav"
 babycry1 = "./dataset/babycry1.mp3"
@@ -33,7 +34,10 @@ def main():
     filepath = f"./dataset/{opt.type}.aac" 
     while True:
         logger.info(f'play {opt.type}')
-        return_code = subprocess.call(["afplay", filepath]) 
+        if platform.system()=='Darwin':
+            return_code = subprocess.call(["afplay", filepath]) 
+        elif  platform.system()=='Linux':
+            return_code = subprocess.call(["mplayer", filepath])
         if time.time()-start>opt.hour*3600:
             break
         time.sleep(300)
