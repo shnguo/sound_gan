@@ -4,6 +4,7 @@ import argparse
 import time
 from log import get_logger
 import os
+os.environ['XDG_RUNTIME_DIR'] = "/run/user/1000"
 import platform
 from glob import glob
 import random
