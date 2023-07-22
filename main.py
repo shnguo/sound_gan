@@ -49,7 +49,7 @@ def main():
         if time.time()-start>opt.hour*3600:
             break
         if opt.sleep>0:
-            time.sleep(random.randint(1,opt.sleep*60))
+            time.sleep(opt.sleep*60)
         else:
             time.sleep(300)
 
