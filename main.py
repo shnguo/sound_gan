@@ -29,7 +29,7 @@ def parse_opt():
     parser = argparse.ArgumentParser()
     parser.add_argument('--type', type=str, default='weixin_piece', help='For connection.')
     parser.add_argument('--hour',type=float,default=1.0)
-    parser.add_argument('--sleep',type=int,default=0)
+    parser.add_argument('--sleep',type=float,default=0)
     opt = parser.parse_args()
     # print_args(vars(opt))
     return opt
