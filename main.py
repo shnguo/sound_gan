@@ -1,5 +1,5 @@
 import os
-os.environ['XDG_RUNTIME_DIR'] = "/run/user/1000"
+import platform
 import subprocess
 # import bleak
 import argparse
@@ -7,7 +7,7 @@ import time
 from log import get_logger
 
 
-import platform
+
 from glob import glob
 import random
 logger = get_logger(os.path.basename(__file__))
@@ -43,8 +43,10 @@ def main():
     while True:
         logger.info(f'play {opt.type}')
         if platform.system()=='Darwin':
+            os.environ['XDG_RUNTIME_DIR'] = "/run/user/501"
             return_code = subprocess.call(["afplay", filepath]) 
         elif  platform.system()=='Linux':
+            os.environ['XDG_RUNTIME_DIR'] = "/run/user/1000"
             return_code = subprocess.call(["mplayer", filepath])
         if time.time()-start>opt.hour*3600:
             break
